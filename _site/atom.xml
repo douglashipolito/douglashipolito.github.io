@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Douglas Hipolito</title>
+ <link href="http://douglashipolito.com/atom.xml" rel="self"/>
+ <link href="http://douglashipolito.com/"/>
+ <updated>2014-04-27T18:24:40-03:00</updated>
+ <id>http://douglashipolito.com</id>
+ <author>
+   <name>douglashipolito</name>
+   <email></email>
+ </author>
+
+ 
+
+</feed>

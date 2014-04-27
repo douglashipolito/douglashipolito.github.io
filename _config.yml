@@ -1,0 +1,27 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        /:title/
+
+# Setup
+title:            Douglas Hipolito
+tagline:          'I make "things" for the www.'
+description:      'I am a front-end developer who lives in Porto Alegre and works at Object Edge based in San Francisco.'
+url:              http://douglashipolito.com
+default_lang:     'pt-br'
+
+author:
+  name:           'douglashipolito'
+  url:            http://douglashipolito.com
+
+paginate:         5
+excerpt_separator: <!-- more -->
+
+# Custom vars
+version:          1.0.0
+
+github:
+  url:            https://github.com/douglashipolito
+  repo:           https://github.com/douglashipolito/douglashipolito.com
