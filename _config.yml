@@ -17,7 +17,11 @@ author:
   url:            http://douglashipolito.com
 
 paginate:         5
-excerpt_separator: <!-- more -->
+
+assets:
+  path:           /public
+  img:            /public/img
+  post_img:       /public/img/posts
 
 # Custom vars
 version:          1.0.0
@@ -25,3 +29,5 @@ version:          1.0.0
 github:
   url:            https://github.com/douglashipolito
   repo:           https://github.com/douglashipolito/douglashipolito.github.io
+
+excerpt_separator: <!-- more -->
