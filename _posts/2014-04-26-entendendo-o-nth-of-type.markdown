@@ -2,7 +2,7 @@
 published: false
 title: Entendendo o :nth-of-type
 layout: post
-tags: [css tricks tutorial]
+tags: [css, tricks, tutorial]
 categories: [CSS]
 ---
 No momento em que estamos hoje é muito provável que você já tenha ouvido falar
