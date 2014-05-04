@@ -400,3 +400,15 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+/*
+ * Custom styles
+ */
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
