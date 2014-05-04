@@ -80,7 +80,8 @@ Um exemplo em forma matemática:
 
 Agora em um exemplo real aplicado ao css:
 
-{% codepen CpfcH douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="CpfcH" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/CpfcH/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 <small>* pressione o botão "unselect elements" para desfazer a seleção dos elementos</small>
 
 Neste exemplo possuímos 8 elementos, uma lista com 10 LIs e para facilitar, o conteúdo de cada LI está sendo representado de forma numérica. Os elementos que possuem como conteúdo os valores "2" e "7" foram selecionados, confirmando a expressão, ou seja, se mais dois elementos fossem adicionados, o elemento com conteúdo "12" seria selecionado e assim sucessivamente.
@@ -147,7 +148,8 @@ Este **zero** deve ser levado em consideração, nesta caso, se for contar de tr
 
 Veja como ficou a seleção em um exemplo real:
 
-{% codepen fIzEG douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="fIzEG" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/fIzEG/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 #####Omissão de valores#####
 
@@ -173,11 +175,13 @@ Representando matematicamente:
 
 Assim, teremos o resultado de selecionar os elementos em ordem até um certo limite, neste caso, selecionar até o segundo elemento, veja como ficou o exemplo real:
 
-{% codepen kmczu douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="kmczu" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/kmczu/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 Outro exemplo, selecionando até o oitavo elemento:
 
-{% codepen erhKc douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="erhKc" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/erhKc/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 Foi utilizado `-1n`, mas não é necessário expressar o `-1`, se um valor númerico não for passado, será assumido o `1` como valor.
 
@@ -219,7 +223,8 @@ Desta forma vamos conseguir selecionar entre a faixa especificada, mas vejamos c
 
 Vamos ver o exemplo real:
 
-{% codepen ijdEg douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="ijdEg" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/ijdEg/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 Sabendo disso, é possível fazer diversas combinações, criar diversos ranges. Só ter em menter qual será a regra matemática aplicada nesta pseudo-classe.
 
@@ -246,7 +251,8 @@ Isto é um atalho para `2n+1`, onde sua representação matemática fica assim:
 
 Vejamos o exemplo real:
 
-{% codepen noLjH douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="noLjH" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/noLjH/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 ###even###
 
@@ -265,7 +271,8 @@ Isto, assim como `odd`, é um atalho também, mas só que para expressão `2n+2`
 
 Vejamos o exemplo real:
 
-{% codepen GrzFo douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="GrzFo" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/GrzFo/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 ##Valores numéricos
 
@@ -277,7 +284,8 @@ p:nth-of-type(2)
 
 Isto irá selecionar exatamente o segundo elemento.
 
-{% codepen bJgwx douglashipolito %}
+<p data-height="300" data-theme-id="5971" data-slug-hash="bJgwx" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/douglashipolito/pen/bJgwx/'>nth-of-type - 5n+2</a> by Douglas Hipolito (<a href='http://codepen.io/douglashipolito'>@douglashipolito</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 Isto tem o mesmo efeito que `0n+2`, pois, estamos omitindo o `an` e quando ele é omitido automaticamente o valor `0n` é assumido, e quando omitimos o `an` somos obrigados a fornecer um valor positivo, sendo assim o `2` já fica subentendido como positivo.
 
