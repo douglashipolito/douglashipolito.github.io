@@ -17,6 +17,7 @@ author:
   url:            http://douglashipolito.com
 
 paginate:         5
+plugins:          ./_plugins
 
 assets:
   path:           /public
