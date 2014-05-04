@@ -262,7 +262,7 @@ A palavra-chave `even` serve para selecionar elementos pares e sua sintaxe é as
 p:nth-of-type(even)
 {% endhighlight %}
 
-Isto, assim como `odd`, é um atalho também, mas só que para expressão `2n+2`, onde sua representação matemática fica assim:
+Isto, assim como `odd`, é um atalho também, mas só que para expressão `2n`, onde sua representação matemática fica assim:
 
 (2 x 0) + 2 = 2<br />
 (2 x 1) + 2 = 4<br />
