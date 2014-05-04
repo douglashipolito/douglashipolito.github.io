@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Douglas Hipolito</title>
+ <link href="http://douglashipolito.com/atom.xml" rel="self"/>
+ <link href="http://douglashipolito.com/"/>
+ <updated>2014-05-04T19:29:47-03:00</updated>
+ <id>http://douglashipolito.com</id>
+ <author>
+   <name>douglashipolito</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Entendendo o :nth-of-type</title>
+   <link href="http://douglashipolito.com/entendendo-o-nth-of-type/"/>
+   <updated>2014-05-04T00:00:00-03:00</updated>
+   <id>http://douglashipolito.com/entendendo-o-nth-of-type</id>
+   <content type="html">&lt;p&gt;No momento em que estamos hoje, é muito provável que você já tenha ouvido falar ou utilizado
+a pseudo-classe &lt;strong&gt;:nth-of-type(n)&lt;/strong&gt; ou mesmo o &lt;strong&gt;:nth-child(n)&lt;/strong&gt;, porém eu gostaria de
+abordar o funcionamento desta pseudo-classe de uma forma mais simples e talvez esclarecer
+algumas dúvida que você ainda possa ter.&lt;/p&gt;
+
+&lt;p&gt;Pretendo detalhar seu funcionamento, explicando com exemplos das expressões e abordar as expressões
+matemáticas envolvidas.&lt;/p&gt;
+
+&lt;h2&gt;Conceito&lt;/h2&gt;
+
+&lt;p&gt;Bom, para começar, o &lt;strong&gt;:nth-of-type&lt;/strong&gt; trabalha basicamente com um ramo da matemática
+chamado &lt;a href=&quot;http://pt.wikipedia.org/wiki/Sequ%C3%AAncia_matem%C3%A1tica&quot;&gt;sequências&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Uma sequência ou sucessão é qualquer conjunto organizado de objectos, números ou eventos de qualquer natureza. Para representar uma sucessão escrevem-se os seus elementos numa lista pela sua ordem bem determinada entre parêntesis. Frequentemente nos deparamos com situações em que enumeramos elementos de um conjunto seguindo uma determinada ordenação:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Da sucessão dos presidentes de um país;&lt;/li&gt;
+&lt;li&gt;Da sequência dos episódios de uma minissérie de televisão;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ou seja, sequência é todo grupo ou conjunto no qual seus elementos estão definidos em uma determinada ordem e é nisto que esta pseudo-classe se baseia.&lt;/p&gt;
+
+&lt;h2&gt;nth-of-type(N)&lt;/h2&gt;
+
+&lt;p&gt;O argumento &lt;code&gt;N&lt;/code&gt; pode ser um inteiro, uma palavra-chave ou uma expressão de (an+b).&lt;/p&gt;
+
+&lt;h3&gt;Expressão (an+b)&lt;/h3&gt;
+
+&lt;p&gt;Está expressão é bem simples e entendendo ela, você poderá fazer qualquer combinação(dentro das restrições) e entender complementamente o que está acontecendo.&lt;/p&gt;
+
+&lt;p&gt;Explicando melhor:&lt;/p&gt;
+
+&lt;h3&gt;an - iterações&lt;/h3&gt;
+
+&lt;p&gt;O &lt;code&gt;a&lt;/code&gt; representa o valor de iteração, ou seja, basicamente o número de grupo de elementos. Um exemplo, &lt;code&gt;5n&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;(5 x 0) + 0 = 0&lt;br /&gt;
+(5 x 1) + 0 = 5&lt;br /&gt;
+(5 x 2) + 0 = 10&lt;br /&gt;
+(5 x 3) + 0 = 15&lt;br /&gt;
+(5 x 4) + 0 = 20&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Esta regra fica mais ou menos assim, a cada 5 elementos + o deslocamento inicial(b), selecione o elemento cujo índice seja igual ao resultado desta expressão.&lt;/p&gt;
+
+&lt;p&gt;Neste caso, os elementos com índices &lt;code&gt;5&lt;/code&gt;, &lt;code&gt;10&lt;/code&gt;, &lt;code&gt;15&lt;/code&gt; e &lt;code&gt;20&lt;/code&gt; serão selecionados, o primeiro resultado, o &lt;code&gt;0&lt;/code&gt; será ignorado pois os elementos devem ser selecionados com índices começados em 1 e 0 não é um índice válido neste caso.&lt;/p&gt;
+
+&lt;p&gt;Como é possível perceber, a fórmula ficou (a x n) + &lt;strong&gt;0&lt;/strong&gt;, este zero foi adicionado devido a omissão do valor de deslocamento inicial(&lt;code&gt;b&lt;/code&gt;), se ele for omitido, este valor será considerado como 0.&lt;/p&gt;
+
+&lt;h3&gt;b - deslocamento inicial&lt;/h3&gt;
+
+&lt;p&gt;O &lt;code&gt;b&lt;/code&gt; representa o valor de deslocamento inicial, ou seja, o índice pelo qual a busca será iniciada dentro do grupo. Seu valor pode ser tanto positivo, negativo ou zero.&lt;/p&gt;
+
+&lt;p&gt;Considere o seguinte exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;5n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Neste exemplo possuímos uma regra para iterar a cada 5 elementos e iniciar pelo elemento de índice 2 com base na iteração atual dentro do loop, por exemplo, considerando que estamos no terceiro loop desta iteração, no caso, no índice 2:&lt;/p&gt;
+
+&lt;p&gt;5 x 0 = 0&lt;br /&gt;
+5 x 1 = 5&lt;br /&gt;
+&lt;strong&gt;5 x 2 = 10&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;O resultado será &lt;code&gt;10&lt;/code&gt;, mas possuímos o &lt;code&gt;b&lt;/code&gt; para processar ainda, então o resultado da iteração + &lt;code&gt;b&lt;/code&gt; será o índice do elemento que procuramos nesta sequência, que seria 10 + 2 = &lt;strong&gt;12&lt;/strong&gt;, logo, o elemento de índice &lt;code&gt;12&lt;/code&gt; seria selecionado.&lt;/p&gt;
+
+&lt;p&gt;Um exemplo em forma matemática:&lt;/p&gt;
+
+&lt;p&gt;(5 x 0) + 2 = 2&lt;br /&gt;
+(5 x 1) + 2 = 7&lt;br /&gt;
+(5 x 2) + 2 = 12&lt;br /&gt;
+(5 x 3) + 2 = 17&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora em um exemplo real aplicado ao css:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;CpfcH&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/CpfcH/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+&lt;small&gt;* pressione o botão &amp;quot;unselect elements&amp;quot; para desfazer a seleção dos elementos&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;Neste exemplo possuímos 8 elementos, uma lista com 10 LIs e para facilitar, o conteúdo de cada LI está sendo representado de forma numérica. Os elementos que possuem como conteúdo os valores &amp;quot;2&amp;quot; e &amp;quot;7&amp;quot; foram selecionados, confirmando a expressão, ou seja, se mais dois elementos fossem adicionados, o elemento com conteúdo &amp;quot;12&amp;quot; seria selecionado e assim sucessivamente.&lt;/p&gt;
+
+&lt;h2&gt;Expressões com valores negativos&lt;/h2&gt;
+
+&lt;p&gt;É possível utilizar valores negativos nas expressões, porém é necessário sempre ter um valor positivo ou para o &lt;code&gt;an&lt;/code&gt; ou para o &lt;code&gt;b&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Valores negativos para o deslocamento inicial(b)&lt;/h3&gt;
+
+&lt;p&gt;Ao utilizar um valor negativo para o deslocamento inicial, indicamos que após obter o resultado de (a x n), desejamos que o índíce do elemento que será selecionado deverá ser igual ao resultado de (a x n) - o deslocamento inicial(b), sendo assim, ao invés de ir da esquerda para direita, iremos da direita para esquerda.&lt;/p&gt;
+
+&lt;p&gt;Um exemplo &lt;code&gt;5n-2&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;(5 x 0) - 2 = -2&lt;br /&gt;
+(5 x 1) - 2 = 3&lt;br /&gt;
+(5 x 2) - 2 = 8&lt;br /&gt;
+(5 x 3) - 2 = 13&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Por consequência da subtração de 2 do resultado (a x n), o deslocamento iniciou-se da direita para esquerda. Esta é uma forma bem útil de inverter a expressão e começar pelos últimos elementos de cada grupo, sendo mais ou menos como dizer algo parecido com: &amp;quot;selecione os dois últimos elementos a cada 5 elementos começando em zero&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;Este detalhe:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;selecione os dois últimos elementos a cada 5 elementos começando em &lt;strong&gt;zero&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Este &lt;strong&gt;zero&lt;/strong&gt; deve ser levado em consideração, nesta caso, se for contar de trás para frente em cada grupo, a contagem deverá começar em zero e não em um, por exemplo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Elemento&lt;/th&gt;
+      &lt;th&gt;Índice&lt;/th&gt;
+      &lt;th&gt;Selecionado&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;sim&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;não&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Veja como ficou a seleção em um exemplo real:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;fIzEG&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/fIzEG/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h5&gt;Omissão de valores&lt;/h5&gt;
+
+&lt;p&gt;Se &lt;code&gt;an&lt;/code&gt; for omitido ele será considerado como &lt;code&gt;0n&lt;/code&gt;, seguindo o mesmo exemplo &lt;code&gt;5n-2&lt;/code&gt;, mas o omitindo o &lt;code&gt;5n&lt;/code&gt;, teriamos o seguinte resultado:&lt;/p&gt;
+
+&lt;p&gt;(0 x 0) - 2 = -2&lt;br /&gt;
+(0 x 1) - 2 = -2&lt;br /&gt;
+(0 x 2) - 2 = -2&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ou seja, neste caso, não é permitido a omissão do &lt;code&gt;an&lt;/code&gt; pois o resultado será sempre negativo, só é permitido com valores positivos.&lt;/p&gt;
+
+&lt;h3&gt;Valores negativos para iteração(an)&lt;/h3&gt;
+
+&lt;p&gt;Ao passar um valor negativo para o valor de iteração você estará dizendo que quer iterar sobre -n elementos, parece não funcionar, mas como precisamos somar com o &lt;code&gt;b&lt;/code&gt;, este valor volta a ser positivo conforme os loops. Vamos ver melhor isso.&lt;/p&gt;
+
+&lt;p&gt;Vejamos este exemplo: &lt;code&gt;-1n+2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Representando matematicamente:&lt;/p&gt;
+
+&lt;p&gt;((-1) x 0) + 2 = 2&lt;br /&gt;
+((-1) x 1) + 2 = 1&lt;br /&gt;
+((-1) x 2) + 2 = 0&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Assim, teremos o resultado de selecionar os elementos em ordem até um certo limite, neste caso, selecionar até o segundo elemento, veja como ficou o exemplo real:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;kmczu&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/kmczu/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Outro exemplo, selecionando até o oitavo elemento:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;erhKc&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/erhKc/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Foi utilizado &lt;code&gt;-1n&lt;/code&gt;, mas não é necessário expressar o &lt;code&gt;-1&lt;/code&gt;, se um valor númerico não for passado, será assumido o &lt;code&gt;1&lt;/code&gt; como valor.&lt;/p&gt;
+
+&lt;p&gt;Como é possível perceber, está expressão é bem útil, de uma forma bem simples selecionamos varios elementos ao mesmo tempo com um limite definido, &lt;code&gt;-n+2&lt;/code&gt;, neste caso, até o segundo elemento.&lt;/p&gt;
+
+&lt;h5&gt;Omissão de valores&lt;/h5&gt;
+
+&lt;p&gt;Assim como para o deslocamento inicial(b), não é permitido a omissão do deslocamento inicial quando o valor de iteração for negativo ou mesmo valores negativos no deslocamento inicial.&lt;/p&gt;
+
+&lt;h2&gt;Seleção de elementos entre faixas&lt;/h2&gt;
+
+&lt;p&gt;Tanto o :nth-of-type quanto o :nth-child e seus derivados são excelentes, ajudam muito e são muito bem feitos, além de terem estas seleções mais simples, é possível também fazer seleções mais complexas, como por exemplo, selecionar entre faixas, vamos ver alguns exemplos.&lt;/p&gt;
+
+&lt;p&gt;Considerando um exemplo como: &amp;quot;Queremos selecionar todos elementos entre 3 e 8&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;Para que isso seja possível, devemos utilizar duas vezes o :nth-of-type, assim:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Desta forma vamos conseguir selecionar entre a faixa especificada, mas vejamos como isto ficaria visto de forma matemática:&lt;/p&gt;
+
+&lt;p&gt;(1 x 0) + 3 = 3&lt;br /&gt;
+(1 x 1) + 3 = 4&lt;br /&gt;
+(1 x 2) + 3 = 5&lt;br /&gt;
+ +&lt;br /&gt;
+((-1) x 0) + 8 = 8&lt;br /&gt;
+((-1) x 1) + 8 = 7&lt;br /&gt;
+((-1) x 2) + 8 = 6&lt;br /&gt;
+((-1) x 3) + 8 = 5&lt;br /&gt;
+((-1) x 4) + 8 = 4&lt;br /&gt;
+((-1) x 5) + 8 = 3&lt;br /&gt;
+((-1) x 6) + 8 = 2&lt;br /&gt;
+((-1) x 7) + 8 = 1&lt;br /&gt;
+((-1) x 8) + 8 = 0&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;É possível ver claramente como será o resultado, no primeiro caso será selecionado a partir do terceiro elemento e deveria seguir até o fim, ou seja, selecionar todos elementos a partir do terceiro elemento, mas devido a segunda regra aplicada, será selecionado do oitavo elemento até primeiro e juntando as duas regras, ficará de 3 até 8 ou de 8 até 3.&lt;/p&gt;
+
+&lt;p&gt;Vamos ver o exemplo real:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;ijdEg&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/ijdEg/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Sabendo disso, é possível fazer diversas combinações, criar diversos ranges. Só ter em menter qual será a regra matemática aplicada nesta pseudo-classe.&lt;/p&gt;
+
+&lt;p&gt;Bom, agora eu já falei bastante sobre a expressão (an+b), vamos ver agora sobre os outros dois valores do argumento N, as palavras-chaves e os valores numéricos.&lt;/p&gt;
+
+&lt;h2&gt;Palavras-chaves&lt;/h2&gt;
+
+&lt;p&gt;Existem duas palavras-chaves que são na verdade atalhos para uma expressão.&lt;/p&gt;
+
+&lt;h3&gt;odd&lt;/h3&gt;
+
+&lt;p&gt;A palavra-chave &lt;code&gt;odd&lt;/code&gt; serve para selecionar elementos ímpares e sua sintaxe é assim:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;odd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Isto é um atalho para &lt;code&gt;2n+1&lt;/code&gt;, onde sua representação matemática fica assim:&lt;/p&gt;
+
+&lt;p&gt;(2 x 0) + 1 = 1&lt;br /&gt;
+(2 x 1) + 1 = 3&lt;br /&gt;
+(2 x 2) + 1 = 5&lt;br /&gt;
+(2 x 3) + 1 = 7&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vejamos o exemplo real:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;noLjH&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/noLjH/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3&gt;even&lt;/h3&gt;
+
+&lt;p&gt;A palavra-chave &lt;code&gt;even&lt;/code&gt; serve para selecionar elementos pares e sua sintaxe é assim:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Isto, assim como &lt;code&gt;odd&lt;/code&gt;, é um atalho também, mas só que para expressão &lt;code&gt;2n+2&lt;/code&gt;, onde sua representação matemática fica assim:&lt;/p&gt;
+
+&lt;p&gt;(2 x 0) + 2 = 2&lt;br /&gt;
+(2 x 1) + 2 = 4&lt;br /&gt;
+(2 x 2) + 2 = 6&lt;br /&gt;
+(2 x 3) + 2 = 8&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vejamos o exemplo real:&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;GrzFo&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/GrzFo/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2&gt;Valores numéricos&lt;/h2&gt;
+
+&lt;p&gt;Os valores numéricos representam basicamente a posição exata do elemento que se deseja selecionar, como por exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Isto irá selecionar exatamente o segundo elemento.&lt;/p&gt;
+
+&lt;p&gt;&lt;p data-height=&quot;300&quot; data-theme-id=&quot;5971&quot; data-href=&quot;bJgwx&quot; data-user=&quot;douglashipolito&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See more like &lt;a href='http://codepen.io/douglashipolito/pen/bJgwx/'&gt;this Pen&lt;/a&gt; on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Isto tem o mesmo efeito que &lt;code&gt;0n+2&lt;/code&gt;, pois, estamos omitindo o &lt;code&gt;an&lt;/code&gt; e quando ele é omitido automaticamente o valor &lt;code&gt;0n&lt;/code&gt; é assumido, e quando omitimos o &lt;code&gt;an&lt;/code&gt; somos obrigados a fornecer um valor positivo, sendo assim o &lt;code&gt;2&lt;/code&gt; já fica subentendido como positivo.&lt;/p&gt;
+
+&lt;h2&gt;Finalização&lt;/h2&gt;
+
+&lt;p&gt;Bom, espero que este artigo tenha sido útil para esclarecer qualquer dúvida com relação esta pseudo-classe e a lógica por trás do nth.&lt;/p&gt;
+
+&lt;p&gt;O artigo ficou meio extenso, mas acredito que ficou de uma forma simples e de fácil entendimento. Espero que ele tenha sido útil para você se aventurar mais nos nth-*.&lt;/p&gt;
+
+&lt;p&gt;Qualquer dúvida, só perguntar :)&lt;/p&gt;
+
+&lt;h3&gt;Referências e materiais para estudo&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3.org/TR/css3-selectors/#nth-child-pseudo&quot;&gt;w3c - css3-selectors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://css-tricks.com/how-nth-child-works/&quot;&gt;css-tricks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://reference.sitepoint.com/css/understandingnthchildexpressions&quot;&gt;site-point&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nthmaster.com/&quot;&gt;nth-master&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+
+</feed>
