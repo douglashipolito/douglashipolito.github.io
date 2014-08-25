@@ -5,9 +5,6 @@ layout: post
 tags: [js, braziljs, events]
 categories: [JS, Events]
 ---
-Resumo BrazilJS 2014 - Primeiro Dia
-=========
-
 Bom pessoal, pretendo passar um pouco do que eu vi de interessante no BrazilJS.
 
 ##Service Worker - [Renato Mangini](https://github.com/mangini) _Google_
@@ -15,6 +12,8 @@ Bom pessoal, pretendo passar um pouco do que eu vi de interessante no BrazilJS.
 A primeira palestra foi bem interessante, falou sobre o Network Service, que é uma das especificações do [Service Worker](https://github.com/slightlyoff/ServiceWorker/blob/master/explainer.md).
 
 Basicamente, este serviço irá gerenciar todas requisições da rede, você terá controle do que será entregue ou não e poderá manipular este conteúdo. Ele funciona da seguinte forma, você determina em qual url o Service Worker deverá ser instalado, neste primeiro acesso, o Network Service não será utilizado, a partir do próximo acesso o Network Service será utilizado e com ele, será possível ter controle das requisições, cache, cabeçalhos.. ele funciona como um proxy, algo que é bem similar a ele é o [AppCache](http://www.html5rocks.com/en/tutorials/appcache/beginner/), porém o AppCache se proprõe a ter controle dos arquivos e não das requisições.
+
+<!-- more -->
 
 Um exemplo do uso de um Service Worker:
 
@@ -60,8 +59,6 @@ Nesta talk, o Chris Miller basicamente explicou como funciona o workflow deles n
 * [Gulp](http://gulpjs.com/) - Para automação de processos, similar ao GruntJS
 
 Eles possuem algumas regras e padrões que garantem a qualidade de entrega, entre elas: 
-
-<!-- more -->
 
 * Ter uma equipe pequena, de no máximo 5 pessoas, para que o processo de desenvolvimento seja ágil
 *  Utilizar testes A/B para todas as funcionalidades
