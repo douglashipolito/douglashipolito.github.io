@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Resumo BrazilJS 2014 - Primeiro Dia
 layout: post
 tags: [js, braziljs, events]
