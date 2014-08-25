@@ -79,7 +79,7 @@ Para quem quiser ver a palestra dele em vídeo, tem esta no youtube:
 
 Mas como eu falei, é algo meio complexo.
 
-##Effective jQuery - [Jörn Zaefferer - bassistance - Criador do jQuery Validate](https://github.com/jzaefferer) _JQuery_
+##Effective jQuery - [Jörn Zaefferer - bassistance](https://github.com/jzaefferer) _JQuery_
 
 Esta palestra basicamente reforçou os conceitos de um bom uso do JQuery e como utilizá-lo de uma forma mais performática. Como utilizar `.prevAll` ao invés de `.prev` para que o JS não deixe de funcionar caso ocorra alguma mudança no html, foi dado um exemplo também de como controlar as animações CSS por javascript utilizando o [Jquery.Transit](http://ricostacruz.com/jquery.transit/).
 
