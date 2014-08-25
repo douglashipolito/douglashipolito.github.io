@@ -61,6 +61,8 @@ Nesta talk, o Chris Miller basicamente explicou como funciona o workflow deles n
 
 Eles possuem algumas regras e padrões que garantem a qualidade de entrega, entre elas: 
 
+<!-- more -->
+
 * Ter uma equipe pequena, de no máximo 5 pessoas, para que o processo de desenvolvimento seja ágil
 *  Utilizar testes A/B para todas as funcionalidades
 * Ter a validação de duas pessoas antes do código ser considerado pronto
