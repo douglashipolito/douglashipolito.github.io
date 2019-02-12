@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-pygments:         true
+highlighter:      rouge
 
 # Permalinks
 permalink:        /:title/
@@ -17,7 +17,8 @@ author:
   url:            http://douglashipolito.com
 
 paginate:         5
-plugins:          ./_plugins
+plugins_dir:          ./_plugins
+plugins:          [jekyll-paginate]
 
 assets:
   path:           /public
